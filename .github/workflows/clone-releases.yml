@@ -1,0 +1,14 @@
+name: Clone Releases
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 UTC 0点跑一次
+  workflow_dispatch:       # 支持手动触发
+
+jobs:
+  clone:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: andrewthetechie/gha-clone-releases@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          src_repo: morluto/rea
